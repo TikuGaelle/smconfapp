@@ -1,4 +1,5 @@
 import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
 class SMTab{
   final String title;
   final  IconData icon;
@@ -16,3 +17,11 @@ final tabs =  [
   SMTab(title: "Speakers", icon: CupertinoIcons.group),
   SMTab(title: "Home", icon: CupertinoIcons.home)
 ];
+
+final kTextFieldDecoration = InputDecoration(
+              //contentPadding: EdgeInsets.only(top: 3),
+              border: OutlineInputBorder(
+                borderRadius: BorderRadius.circular(20),
+              ),
+            labelText: ' ',
+                );

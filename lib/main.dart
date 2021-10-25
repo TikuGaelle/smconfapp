@@ -10,6 +10,7 @@ import 'package:smconfapp/screens/schedule.dart';
 import 'package:smconfapp/utils/app_color.dart';
 import 'package:smconfapp/utils/constants.dart';
 import 'package:smconfapp/widgets/speaker_widget.dart';
+import 'screens/registration.dart';
 
 void main() async {
   LicenseRegistry.addLicense(() async* {
@@ -87,6 +88,10 @@ class _MyHomePageState extends State<MyHomePage> {
       }
       break;
       case 2:{
+        widget = Registration();
+      }
+      break;
+      case 3:{
         widget = SpeakersList();
       }
       break;
@@ -113,6 +118,7 @@ class _MyHomePageState extends State<MyHomePage> {
         children: [
           Home(),
           ScheduleScreen(),
+          Registration(),
           SpeakersList(),
           MapWidget()
         ],
@@ -122,6 +128,7 @@ class _MyHomePageState extends State<MyHomePage> {
         items: const<BottomNavigationBarItem>[
           BottomNavigationBarItem(icon: Icon(Icons.home),label: "Home"),
           BottomNavigationBarItem(icon: Icon(Icons.calendar_today),label: "Agenda"),
+           BottomNavigationBarItem(icon: Icon(Icons.person_add),label: "Register"),
           BottomNavigationBarItem(icon: Icon(Icons.group),label: "Group"),
           BottomNavigationBarItem(icon: Icon(Icons.map),label: "Map")
 

@@ -3,9 +3,11 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:smconfapp/data/speaker.dart';
 import 'package:smconfapp/sample_data/sample_data.dart';
+import 'package:smconfapp/screens/registration.dart';
 import 'package:smconfapp/utils/app_color.dart';
 import 'package:smconfapp/utils/constants.dart';
 import 'package:smconfapp/widgets/speaker_widget.dart';
+import 'package:smconfapp/screens/registration.dart';
 class Home extends StatelessWidget {
   const Home({Key? key}) : super(key: key);
 
@@ -35,7 +37,7 @@ class Home extends StatelessWidget {
           padding: EdgeInsets.only(left: 8.0,right: 8.0),
           sliver: SliverToBoxAdapter(
             child: Text(aboutSiliconMountain,
-            style: TextStyle(letterSpacing:3),),
+            style: TextStyle(letterSpacing:3, fontSize: 30),)
           ),
         ),
         SliverPadding(
@@ -54,7 +56,13 @@ class Home extends StatelessWidget {
           sliver: SliverToBoxAdapter(
             child: ElevatedButton(
               child: Text("Grab a Ticket",),
-              onPressed: (){},
+              onPressed: (){
+                 Navigator.push(context,
+                                MaterialPageRoute(builder: (context){
+                                  return Registration();
+                                }),
+                              );
+              },
             ),
           ),
         ),
@@ -70,12 +78,12 @@ class Home extends StatelessWidget {
         ),
         SliverToBoxAdapter(
           child: Container(
-            height: 120,
+            height: 150,
             child: ListView.separated(itemBuilder: (context,index){
               return SpeakerWidget(speaker: speakers[index]);
             },itemCount: speakers.length,
               separatorBuilder: (context,index) {
-              return SizedBox(width: 10,);
+              return SizedBox(width: 12,);
               },
             scrollDirection: Axis.horizontal,shrinkWrap: true,),
           ),
